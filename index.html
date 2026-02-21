@@ -8,12 +8,10 @@
     <meta property="og:title" content="Casa Cashin – Las Tunas, Todos Santos">
     <meta property="og:description" content="Architect-designed contemporary home. 2BR/2BA · 1,500m² lot · Ocean views · Walking distance to Las Tunas dining. $649,000.">
     <meta property="og:type" content="website">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-
     <style>
         :root {
             --terracotta: #A47B67;
@@ -25,672 +23,163 @@
             --white: #ffffff;
             --dark-terracotta: #7A5548;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito Sans', sans-serif; color: var(--dark); background: var(--cream); line-height: 1.6; }
 
-        body {
-            font-family: 'Nunito Sans', sans-serif;
-            color: var(--dark);
-            background: var(--cream);
-            line-height: 1.6;
-        }
-
-        /* ── HERO ───────────────────────────────────────────────── */
         .hero {
             height: 100vh;
-            background:
-                linear-gradient(160deg, rgba(44,36,32,0.72) 0%, rgba(164,123,103,0.55) 100%),
-                url('https://images.squarespace-cdn.com/content/v1/626c5be9b8fc365653a907d1/fbec0cd7-b901-4c7d-81a9-1dbd1bc01600/Aguamarina-34.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(160deg, rgba(44,36,32,0.72) 0%, rgba(164,123,103,0.55) 100%), url('images/hero.png') center/cover no-repeat;
+            display: flex; align-items: flex-end; justify-content: flex-start;
+            position: relative; overflow: hidden;
         }
-
-        /* Subtle grain overlay */
         .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
             pointer-events: none;
         }
-
-        .hero-content {
-            z-index: 1;
-            padding: 0 3rem 4rem;
-            max-width: 780px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-eyebrow {
-            font-size: 0.78rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--sand);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .hero-eyebrow::before {
-            content: '';
-            display: inline-block;
-            width: 2rem;
-            height: 1.5px;
-            background: var(--terracotta);
-        }
-
-        .hero h1 {
-            font-family: 'Crimson Pro', serif;
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            font-weight: 300;
-            color: var(--white);
-            line-height: 1.05;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-
-        .hero h1 em {
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        .hero-location {
-            font-size: 1rem;
-            color: rgba(246,237,228,0.8);
-            letter-spacing: 0.08em;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-        }
-
+        .hero-content { z-index: 1; padding: 0 3rem 4rem; max-width: 780px; animation: fadeInUp 1s ease-out; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sand); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+        .hero-eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1.5px; background: var(--terracotta); }
+        .hero h1 { font-family: 'Crimson Pro', serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300; color: var(--white); line-height: 1.05; margin-bottom: 1rem; letter-spacing: -0.01em; }
+        .hero h1 em { font-style: italic; font-weight: 300; }
+        .hero-location { font-size: 1rem; color: rgba(246,237,228,0.8); letter-spacing: 0.08em; margin-bottom: 2.5rem; }
+        .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
         .hero-stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
+        .hero-stat-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(204,201,198,0.8); }
+        .hero-stat-value { font-family: 'Crimson Pro', serif; font-size: 1.9rem; font-weight: 600; color: var(--white); }
+        .hero-price-badge { position: absolute; top: 2.5rem; right: 2.5rem; background: var(--terracotta); color: var(--white); padding: 0.8rem 1.6rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; z-index: 2; }
+        .hero-presenter { position: absolute; top: 2.5rem; left: 3rem; z-index: 2; color: rgba(246,237,228,0.75); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
-        .hero-stat-label {
-            font-size: 0.72rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(204,201,198,0.8);
-        }
-
-        .hero-stat-value {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.9rem;
-            font-weight: 600;
-            color: var(--white);
-        }
-
-        .hero-price-badge {
-            position: absolute;
-            top: 2.5rem;
-            right: 2.5rem;
-            background: var(--terracotta);
-            color: var(--white);
-            padding: 0.8rem 1.6rem;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            z-index: 2;
-        }
-
-        .hero-presenter {
-            position: absolute;
-            top: 2.5rem;
-            left: 3rem;
-            z-index: 2;
-            color: rgba(246,237,228,0.75);
-            font-size: 0.78rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-
-        /* ── SHARED ─────────────────────────────────────────────── */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-
         section { padding: 6rem 0; position: relative; }
         section:nth-child(even) { background: var(--white); }
-
         .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-number { font-family: 'Crimson Pro', serif; font-size: 0.85rem; color: var(--terracotta); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .section-title { font-family: 'Crimson Pro', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: var(--dark); margin-bottom: 0.75rem; }
+        .section-subtitle { font-size: 1.05rem; color: var(--light-text); max-width: 680px; margin: 0 auto; }
 
-        .section-number {
-            font-family: 'Crimson Pro', serif;
-            font-size: 0.85rem;
-            color: var(--terracotta);
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title {
-            font-family: 'Crimson Pro', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 0.75rem;
-        }
-
-        .section-subtitle {
-            font-size: 1.05rem;
-            color: var(--light-text);
-            max-width: 680px;
-            margin: 0 auto;
-        }
-
-        /* ── CARDS ──────────────────────────────────────────────── */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--white);
-            border: 1px solid var(--grey);
-            padding: 1.8rem;
-            box-shadow: 0 2px 16px rgba(44,36,32,0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 28px rgba(44,36,32,0.12);
-        }
-
-        .card-label {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--terracotta);
-            margin-bottom: 0.5rem;
-        }
-
-        .card-value {
-            font-family: 'Crimson Pro', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.4rem;
-        }
-
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--white); border: 1px solid var(--grey); padding: 1.8rem; box-shadow: 0 2px 16px rgba(44,36,32,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(44,36,32,0.12); }
+        .card-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--terracotta); margin-bottom: 0.5rem; }
+        .card-value { font-family: 'Crimson Pro', serif; font-size: 2.2rem; font-weight: 700; color: var(--dark); margin-bottom: 0.4rem; }
         .card-note { font-size: 0.9rem; color: var(--light-text); }
 
-        /* ── SECTION 1: SUMMARY ─────────────────────────────────── */
-        .summary-section {
-            background: var(--dark) !important;
-            color: var(--white);
-        }
-
+        .summary-section { background: var(--dark) !important; color: var(--white); }
         .summary-section .section-title { color: var(--white); }
         .summary-section .section-subtitle { color: rgba(246,237,228,0.75); }
-
-        .summary-section .card {
-            background: rgba(255,255,255,0.04);
-            border-color: rgba(204,201,198,0.15);
-        }
-
-        .summary-section .card:hover {
-            background: rgba(255,255,255,0.07);
-        }
-
+        .summary-section .card { background: rgba(255,255,255,0.04); border-color: rgba(204,201,198,0.15); }
+        .summary-section .card:hover { background: rgba(255,255,255,0.07); }
         .summary-section .card-label { color: var(--terracotta); }
         .summary-section .card-value { color: var(--cream); }
-        .summary-section .card-note  { color: var(--grey); }
-
-        .positioning-box {
-            margin-top: 2.5rem;
-            padding: 2rem 2.5rem;
-            border-left: 3px solid var(--terracotta);
-            background: rgba(255,255,255,0.04);
-        }
-
-        .positioning-box h3 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.3rem;
-            color: var(--cream);
-            margin-bottom: 0.75rem;
-        }
-
+        .summary-section .card-note { color: var(--grey); }
+        .positioning-box { margin-top: 2.5rem; padding: 2rem 2.5rem; border-left: 3px solid var(--terracotta); background: rgba(255,255,255,0.04); }
+        .positioning-box h3 { font-family: 'Crimson Pro', serif; font-size: 1.3rem; color: var(--cream); margin-bottom: 0.75rem; }
         .positioning-box p { color: var(--grey); font-size: 0.98rem; line-height: 1.75; }
 
-        /* ── SECTION 2: PROPERTY DETAILS ────────────────────────── */
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1rem;
-        }
-
-        .detail-item {
-            padding: 1.4rem 1.6rem;
-            background: var(--cream);
-            border-left: 3px solid var(--terracotta);
-        }
-
-        .detail-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--terracotta);
-            margin-bottom: 0.35rem;
-        }
-
+        .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+        .detail-item { padding: 1.4rem 1.6rem; background: var(--cream); border-left: 3px solid var(--terracotta); }
+        .detail-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--terracotta); margin-bottom: 0.35rem; }
         .detail-value { font-size: 1.15rem; font-weight: 600; color: var(--dark); }
+        .inclusions-box { margin-top: 2.5rem; padding: 2rem 2.5rem; background: var(--dark); color: var(--cream); }
+        .inclusions-box h3 { font-family: 'Crimson Pro', serif; font-size: 1.3rem; margin-bottom: 1rem; }
+        .inclusions-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.6rem; }
+        .inclusions-list li { padding-left: 1.3rem; position: relative; font-size: 0.95rem; color: var(--grey); }
+        .inclusions-list li::before { content: '+'; position: absolute; left: 0; color: var(--terracotta); font-weight: 700; }
 
-        .inclusions-box {
-            margin-top: 2.5rem;
-            padding: 2rem 2.5rem;
-            background: var(--dark);
-            color: var(--cream);
-        }
-
-        .inclusions-box h3 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .inclusions-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 0.6rem;
-        }
-
-        .inclusions-list li {
-            padding-left: 1.3rem;
-            position: relative;
-            font-size: 0.95rem;
-            color: var(--grey);
-        }
-
-        .inclusions-list li::before {
-            content: '+';
-            position: absolute;
-            left: 0;
-            color: var(--terracotta);
-            font-weight: 700;
-        }
-
-        /* ── SECTION 3: LOCATION ────────────────────────────────── */
-        .location-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .location-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .location-list li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.9rem 0;
-            border-bottom: 1px solid var(--grey);
-            font-size: 0.98rem;
-        }
-
+        .location-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .location-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+        .location-list li { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; border-bottom: 1px solid var(--grey); font-size: 0.98rem; }
         .location-list li:last-child { border-bottom: none; }
-
         .location-place { font-weight: 600; color: var(--dark); }
-        .location-dist  { font-size: 0.85rem; color: var(--terracotta); }
-
-        .location-callouts {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .location-callout {
-            padding: 1.4rem 1.6rem;
-            background: var(--white);
-            border: 1px solid var(--grey);
-            border-left: 3px solid var(--terracotta);
-            box-shadow: 0 2px 12px rgba(44,36,32,0.05);
-        }
-
-        .location-callout h4 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-            color: var(--dark);
-        }
-
+        .location-dist { font-size: 0.85rem; color: var(--terracotta); }
+        .location-callouts { display: flex; flex-direction: column; gap: 1.2rem; }
+        .location-callout { padding: 1.4rem 1.6rem; background: var(--white); border: 1px solid var(--grey); border-left: 3px solid var(--terracotta); box-shadow: 0 2px 12px rgba(44,36,32,0.05); }
+        .location-callout h4 { font-family: 'Crimson Pro', serif; font-size: 1.1rem; margin-bottom: 0.4rem; color: var(--dark); }
         .location-callout p { font-size: 0.92rem; color: var(--light-text); line-height: 1.6; }
 
-        /* ── SECTION 4: VACATION RENTAL ─────────────────────────── */
         .rental-section { background: var(--dark) !important; }
         .rental-section .section-title { color: var(--white); }
         .rental-section .section-subtitle { color: rgba(246,237,228,0.7); }
-
-        .rental-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .rental-stat {
-            padding: 2rem;
-            border: 1px solid rgba(164,123,103,0.4);
-            text-align: center;
-            background: rgba(255,255,255,0.03);
-        }
-
-        .rental-stat-value {
-            font-family: 'Crimson Pro', serif;
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--terracotta);
-            margin-bottom: 0.4rem;
-        }
-
-        .rental-stat-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--white);
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
+        .rental-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+        .rental-stat { padding: 2rem; border: 1px solid rgba(164,123,103,0.4); text-align: center; background: rgba(255,255,255,0.03); }
+        .rental-stat-value { font-family: 'Crimson Pro', serif; font-size: 2.4rem; font-weight: 700; color: var(--terracotta); margin-bottom: 0.4rem; }
+        .rental-stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--white); font-weight: 600; margin-bottom: 0.25rem; }
         .rental-stat-note { font-size: 0.82rem; color: var(--grey); }
-
-        .rental-bottom {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .rental-box {
-            padding: 1.8rem;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(204,201,198,0.15);
-        }
-
-        .rental-box h4 {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--terracotta);
-            margin-bottom: 1rem;
-        }
-
+        .rental-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+        .rental-box { padding: 1.8rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(204,201,198,0.15); }
+        .rental-box h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--terracotta); margin-bottom: 1rem; }
         .rental-box p { font-size: 0.93rem; color: var(--grey); line-height: 1.65; }
+        .cap-rate-line { font-family: 'Crimson Pro', serif; font-size: 1.3rem; font-weight: 600; color: var(--cream); margin-top: 0.75rem; }
+        .chart-wrap { background: rgba(255,255,255,0.04); padding: 2rem; margin-top: 2rem; }
+        .chart-wrap h3 { font-family: 'Crimson Pro', serif; font-size: 1.15rem; color: var(--cream); margin-bottom: 1.5rem; }
 
-        .cap-rate-line {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--cream);
-            margin-top: 0.75rem;
-        }
-
-        .chart-wrap {
-            background: rgba(255,255,255,0.04);
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-
-        .chart-wrap h3 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.15rem;
-            color: var(--cream);
-            margin-bottom: 1.5rem;
-        }
-
-        /* ── SECTION 5: MARKET / PRICING ────────────────────────── */
-        .pricing-table {
-            background: var(--white);
-            border: 1px solid var(--grey);
-            overflow: hidden;
-            box-shadow: 0 4px 24px rgba(44,36,32,0.08);
-            margin-top: 3rem;
-        }
-
-        .pricing-header {
-            background: var(--dark);
-            color: var(--white);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .pricing-header h3 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.3rem;
-            color: var(--grey);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        .pricing-header .big-price {
-            font-family: 'Crimson Pro', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--cream);
-        }
-
+        .pricing-table { background: var(--white); border: 1px solid var(--grey); overflow: hidden; box-shadow: 0 4px 24px rgba(44,36,32,0.08); margin-top: 3rem; }
+        .pricing-header { background: var(--dark); color: var(--white); padding: 2rem; text-align: center; }
+        .pricing-header h3 { font-family: 'Crimson Pro', serif; font-size: 1.3rem; color: var(--grey); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.15em; }
+        .pricing-header .big-price { font-family: 'Crimson Pro', serif; font-size: 3.5rem; font-weight: 700; color: var(--cream); }
         .pricing-rows { padding: 0 2rem; }
-
-        .pricing-row {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 1.5rem;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid var(--cream);
-            font-size: 0.97rem;
-        }
-
+        .pricing-row { display: grid; grid-template-columns: 1fr 1.5fr; gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid var(--cream); font-size: 0.97rem; }
         .pricing-row:last-child { border-bottom: none; }
         .pricing-label { font-weight: 600; color: var(--dark); }
         .pricing-value { color: var(--light-text); }
-
-        .premium-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.2rem;
-            margin-top: 2.5rem;
-        }
-
-        .premium-item {
-            padding: 1.5rem;
-            background: var(--cream);
-            border-left: 3px solid var(--terracotta);
-        }
-
-        .premium-item h4 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.1rem;
-            color: var(--dark);
-            margin-bottom: 0.4rem;
-        }
-
+        .premium-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.5rem; }
+        .premium-item { padding: 1.5rem; background: var(--cream); border-left: 3px solid var(--terracotta); }
+        .premium-item h4 { font-family: 'Crimson Pro', serif; font-size: 1.1rem; color: var(--dark); margin-bottom: 0.4rem; }
         .premium-item p { font-size: 0.9rem; color: var(--light-text); line-height: 1.6; }
 
-        /* ── SECTION 6: MARKETING ───────────────────────────────── */
-        .phases-grid {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .phase-card {
-            background: var(--white);
-            border: 1px solid var(--grey);
-            padding: 2rem 2.5rem;
-            box-shadow: 0 2px 12px rgba(44,36,32,0.05);
-        }
-
-        .phase-card h3 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.35rem;
-            color: var(--dark);
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--cream);
-        }
-
+        .phases-grid { display: grid; gap: 1.5rem; margin-top: 1rem; }
+        .phase-card { background: var(--white); border: 1px solid var(--grey); padding: 2rem 2.5rem; box-shadow: 0 2px 12px rgba(44,36,32,0.05); }
+        .phase-card h3 { font-family: 'Crimson Pro', serif; font-size: 1.35rem; color: var(--dark); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--cream); }
         .phase-card ul { list-style: none; display: grid; gap: 0.6rem; }
+        .phase-card li { padding-left: 1.4rem; position: relative; font-size: 0.95rem; color: var(--light-text); }
+        .phase-card li::before { content: '✓'; position: absolute; left: 0; color: var(--terracotta); font-weight: 700; }
 
-        .phase-card li {
-            padding-left: 1.4rem;
-            position: relative;
-            font-size: 0.95rem;
-            color: var(--light-text);
-        }
-
-        .phase-card li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--terracotta);
-            font-weight: 700;
-        }
-
-        /* ── SECTION 7: WHY AMY ─────────────────────────────────── */
         .why-amy-section { background: var(--dark) !important; }
         .why-amy-section .section-title { color: var(--white); }
         .why-amy-section .section-subtitle { color: rgba(246,237,228,0.7); }
-
-        .why-amy-section .card {
-            background: rgba(255,255,255,0.04);
-            border-color: rgba(204,201,198,0.15);
-        }
-
+        .why-amy-section .card { background: rgba(255,255,255,0.04); border-color: rgba(204,201,198,0.15); }
         .why-amy-section .card-label { color: var(--terracotta); }
         .why-amy-section .card-value { color: var(--cream); font-size: 1.8rem; }
-        .why-amy-section .card-note  { color: var(--grey); }
-
-        .advantages-list {
-            list-style: none;
-            display: grid;
-            gap: 0.9rem;
-            margin-top: 2.5rem;
-            padding: 2rem 2.5rem;
-            background: rgba(255,255,255,0.04);
-        }
-
-        .advantages-list li {
-            padding-left: 1.4rem;
-            position: relative;
-            font-size: 0.96rem;
-            color: var(--grey);
-            line-height: 1.6;
-        }
-
-        .advantages-list li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--terracotta);
-            font-weight: 700;
-        }
-
+        .why-amy-section .card-note { color: var(--grey); }
+        .advantages-list { list-style: none; display: grid; gap: 0.9rem; margin-top: 2.5rem; padding: 2rem 2.5rem; background: rgba(255,255,255,0.04); }
+        .advantages-list li { padding-left: 1.4rem; position: relative; font-size: 0.96rem; color: var(--grey); line-height: 1.6; }
+        .advantages-list li::before { content: '•'; position: absolute; left: 0; color: var(--terracotta); font-weight: 700; }
         .advantages-list strong { color: var(--cream); }
 
-        /* ── CTA ────────────────────────────────────────────────── */
-        .cta-section {
-            background: var(--terracotta) !important;
-            text-align: center;
-            padding: 5rem 2rem;
-        }
-
-        .cta-section h2 {
-            font-family: 'Crimson Pro', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--white);
-            margin-bottom: 0.75rem;
-        }
-
-        .cta-section p {
-            font-size: 1.1rem;
-            color: rgba(246,237,228,0.9);
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-card {
-            display: inline-flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 1.8rem 3.5rem;
-            border: 1px solid rgba(255,255,255,0.25);
-        }
-
-        .cta-label {
-            font-size: 0.75rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(246,237,228,0.8);
-        }
-
+        .cta-section { background: var(--terracotta) !important; text-align: center; padding: 5rem 2rem; }
+        .cta-section h2 { font-family: 'Crimson Pro', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--white); margin-bottom: 0.75rem; }
+        .cta-section p { font-size: 1.1rem; color: rgba(246,237,228,0.9); margin-bottom: 2.5rem; }
+        .cta-card { display: inline-flex; flex-direction: column; gap: 0.5rem; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 1.8rem 3.5rem; border: 1px solid rgba(255,255,255,0.25); }
+        .cta-label { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(246,237,228,0.8); }
         .cta-value { font-size: 1.2rem; font-weight: 600; color: var(--white); }
 
-        /* ── FOOTER ─────────────────────────────────────────────── */
-        footer {
-            background: var(--dark);
-            color: var(--grey);
-            padding: 3rem 0;
-            text-align: center;
-        }
-
+        footer { background: var(--dark); color: var(--grey); padding: 3rem 0; text-align: center; }
         footer p { font-size: 0.9rem; line-height: 1.9; opacity: 0.8; }
-
         footer a { color: var(--terracotta); text-decoration: none; }
 
-        /* ── RESPONSIVE ─────────────────────────────────────────── */
         @media (max-width: 900px) {
-            .location-layout   { grid-template-columns: 1fr; }
-            .rental-stats      { grid-template-columns: 1fr 1fr; }
-            .rental-bottom     { grid-template-columns: 1fr; }
-            .premium-grid      { grid-template-columns: 1fr; }
+            .location-layout { grid-template-columns: 1fr; }
+            .rental-stats { grid-template-columns: 1fr 1fr; }
+            .rental-bottom { grid-template-columns: 1fr; }
+            .premium-grid { grid-template-columns: 1fr; }
         }
-
         @media (max-width: 600px) {
-            .hero-content      { padding: 0 1.5rem 3rem; }
-            .hero-price-badge  { top: 1.5rem; right: 1.5rem; font-size: 0.75rem; padding: 0.65rem 1.2rem; }
-            .hero-presenter    { left: 1.5rem; }
-            .hero-stats        { gap: 1.5rem; }
-            section            { padding: 4rem 0; }
-            .rental-stats      { grid-template-columns: 1fr; }
+            .hero-content { padding: 0 1.5rem 3rem; }
+            .hero-price-badge { top: 1.5rem; right: 1.5rem; font-size: 0.75rem; padding: 0.65rem 1.2rem; }
+            .hero-presenter { left: 1.5rem; }
+            .hero-stats { gap: 1.5rem; }
+            section { padding: 4rem 0; }
+            .rental-stats { grid-template-columns: 1fr; }
         }
-
-        /* ── SCROLL FADE ────────────────────────────────────────── */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
-<!-- ── HERO ──────────────────────────────────────────────────────── -->
+<!-- HERO -->
 <section class="hero">
     <div class="hero-presenter">Amy Rex · Property Management &amp; Real Estate</div>
     <div class="hero-price-badge">Offered at $649,000</div>
@@ -719,7 +208,7 @@
     </div>
 </section>
 
-<!-- ── 01 EXECUTIVE SUMMARY ──────────────────────────────────────── -->
+<!-- 01 EXECUTIVE SUMMARY -->
 <section class="summary-section">
     <div class="container">
         <div class="section-header">
@@ -727,7 +216,6 @@
             <h2 class="section-title">Executive Summary</h2>
             <p class="section-subtitle">Strategic positioning for a discerning buyer market</p>
         </div>
-
         <div class="card-grid fade-in">
             <div class="card">
                 <div class="card-label">List Price</div>
@@ -750,82 +238,35 @@
                 <div class="card-note">As vacation rental · NOI ~$49K/yr</div>
             </div>
         </div>
-
         <div class="positioning-box fade-in">
             <h3>Strategic Positioning</h3>
-            <p>
-                <strong style="color: var(--cream);">New Construction + Investment Dual Appeal:</strong>
-                Casa Cashin is the only newly built (2025), architect-designed home in Las Tunas with an
-                elevated 1,500m² lot, partial Pacific ocean views, and walking distance to the corridor's
-                most visited restaurants and venues. It is priced at $649,000 — below the $650K psychological
-                barrier — while commanding a justified premium over the $450–$550K median thanks to lot size
-                (32% above CMA average), U.S.-standard construction documentation, and the proven
-                vacation rental upside that Amy Rex's management network can immediately activate.
-            </p>
+            <p><strong style="color: var(--cream);">New Construction + Investment Dual Appeal:</strong> Casa Cashin is the only newly built (2025), architect-designed home in Las Tunas with an elevated 1,500m² lot, partial Pacific ocean views, and walking distance to the corridor's most visited restaurants and venues. Priced at $649,000 — below the $650K psychological barrier — while commanding a justified premium over the $450–$550K median thanks to lot size (32% above CMA average), U.S.-standard construction, and proven vacation rental upside that Amy Rex's management network can immediately activate.</p>
         </div>
     </div>
 </section>
 
-<!-- ── 02 PROPERTY DETAILS ───────────────────────────────────────── -->
+<!-- 02 PROPERTY OVERVIEW -->
 <section>
     <div class="container">
         <div class="section-header">
             <div class="section-number">02</div>
             <h2 class="section-title">Property Overview</h2>
-            <p class="section-subtitle">New contemporary construction designed by architect Diana Zavala in the heart of Las Tunas</p>
+            <p class="section-subtitle">New contemporary construction architecturally designed by Diana Zavala in the heart of Las Tunas</p>
         </div>
-
         <div class="details-grid fade-in">
-            <div class="detail-item">
-                <div class="detail-label">Architect</div>
-                <div class="detail-value">Diana Zavala</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Year Built</div>
-                <div class="detail-value">2025</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Style</div>
-                <div class="detail-value">Contemporary · Open Concept</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Lot Size</div>
-                <div class="detail-value">1,500 m²</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Bedrooms</div>
-                <div class="detail-value">2 · Master w/ Ensuite</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Bathrooms</div>
-                <div class="detail-value">2 Full</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Views</div>
-                <div class="detail-value">Partial Pacific Ocean</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Pool</div>
-                <div class="detail-value">In Place (finishing)</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Kitchen</div>
-                <div class="detail-value">Fully Equipped · Kitchen Nook</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Water</div>
-                <div class="detail-value">Full Purification System</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Connectivity</div>
-                <div class="detail-value">Baja Connect Fiber · 75" Smart TV</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-label">Title</div>
-                <div class="detail-value">Fideicomiso · Notario Ready</div>
-            </div>
+            <div class="detail-item"><div class="detail-label">Architect</div><div class="detail-value">Diana Zavala</div></div>
+            <div class="detail-item"><div class="detail-label">Year Built</div><div class="detail-value">2025</div></div>
+            <div class="detail-item"><div class="detail-label">Style</div><div class="detail-value">Contemporary · Open Concept</div></div>
+            <div class="detail-item"><div class="detail-label">Lot Size</div><div class="detail-value">1,500 m²</div></div>
+            <div class="detail-item"><div class="detail-label">Bedrooms</div><div class="detail-value">2 · Master w/ Ensuite</div></div>
+            <div class="detail-item"><div class="detail-label">Bathrooms</div><div class="detail-value">2 Full</div></div>
+            <div class="detail-item"><div class="detail-label">Views</div><div class="detail-value">Partial Pacific Ocean</div></div>
+            <div class="detail-item"><div class="detail-label">Pool</div><div class="detail-value">In Place (finishing)</div></div>
+            <div class="detail-item"><div class="detail-label">Kitchen</div><div class="detail-value">Fully Equipped · Kitchen Nook</div></div>
+            <div class="detail-item"><div class="detail-label">Water</div><div class="detail-value">Full Purification System</div></div>
+            <div class="detail-item"><div class="detail-label">Connectivity</div><div class="detail-value">Baja Connect Fiber · 75" Smart TV</div></div>
+            <div class="detail-item"><div class="detail-label">Title</div><div class="detail-value">Fideicomiso · Notario Ready</div></div>
         </div>
-
         <div class="inclusions-box fade-in">
             <h3>What's Included</h3>
             <ul class="inclusions-list">
@@ -842,7 +283,7 @@
     </div>
 </section>
 
-<!-- ── 03 LOCATION ───────────────────────────────────────────────── -->
+<!-- 03 LOCATION -->
 <section>
     <div class="container">
         <div class="section-header">
@@ -850,44 +291,22 @@
             <h2 class="section-title">Location &amp; Walkability</h2>
             <p class="section-subtitle">A rare combination of elevation, ocean views, and walk-to-everything convenience in Las Tunas</p>
         </div>
-
         <div class="location-layout fade-in">
             <div>
-                <p style="color: var(--light-text); margin-bottom: 1.5rem; font-size: 0.97rem; line-height: 1.75;">
-                    Casa Cashin sits across the street from Baja Temple, one of Las Tunas' most recognized boutique hotels (4.7★, 113 reviews), within walking distance of the corridor's best dining and leisure destinations. This level of walkability is genuinely scarce in the Todos Santos market — most comparables require a car for everything.
-                </p>
+                <p style="color: var(--light-text); margin-bottom: 1.5rem; font-size: 0.97rem; line-height: 1.75;">Casa Cashin sits across the street from Baja Temple — one of Las Tunas' most recognized boutique hotels (4.7★, 113 reviews) — within walking distance of the corridor's best dining and leisure. This level of walkability is genuinely scarce in the Todos Santos market; most comparables require a car for everything.</p>
                 <ul class="location-list">
-                    <li>
-                        <span class="location-place">Baja Temple</span>
-                        <span class="location-dist">Across the street</span>
-                    </li>
-                    <li>
-                        <span class="location-place">Coffee Shop Las Tunas</span>
-                        <span class="location-dist">~5 min walk</span>
-                    </li>
-                    <li>
-                        <span class="location-place">Five Tacos and Beer</span>
-                        <span class="location-dist">~5 min walk</span>
-                    </li>
-                    <li>
-                        <span class="location-place">El Triángulo / Aembers</span>
-                        <span class="location-dist">~7 min walk</span>
-                    </li>
-                    <li>
-                        <span class="location-place">Poke Loko · Baja Varia</span>
-                        <span class="location-dist">~7 min walk</span>
-                    </li>
-                    <li>
-                        <span class="location-place">La Casita · La Esquina</span>
-                        <span class="location-dist">~10 min walk</span>
-                    </li>
+                    <li><span class="location-place">Baja Temple</span><span class="location-dist">Across the street</span></li>
+                    <li><span class="location-place">Coffee Shop Las Tunas</span><span class="location-dist">~5 min walk</span></li>
+                    <li><span class="location-place">Five Tacos and Beer</span><span class="location-dist">~5 min walk</span></li>
+                    <li><span class="location-place">El Triángulo / Aembers</span><span class="location-dist">~7 min walk</span></li>
+                    <li><span class="location-place">Poke Loko · Baja Varia</span><span class="location-dist">~7 min walk</span></li>
+                    <li><span class="location-place">La Casita · La Esquina</span><span class="location-dist">~10 min walk</span></li>
                 </ul>
             </div>
-
             <div class="location-callouts">
                 <div class="location-callout">
                     <h4>Elevated Lot with Ocean Views</h4>
-                    <p>The property sits on a natural rise within Las Tunas, providing partial Pacific views from the living room — a genuine rarity in the area and a key driver of vacation rental ADR.</p>
+                    <p>The property sits on a natural rise within Las Tunas, providing partial Pacific views from the living room — a genuine rarity that commands premium vacation rental rates.</p>
                 </div>
                 <div class="location-callout">
                     <h4>Las Tunas Corridor Growth</h4>
@@ -899,14 +318,14 @@
                 </div>
                 <div class="location-callout">
                     <h4>Two-Level Lot Opportunity</h4>
-                    <p>The 1,500m² lot has a lower street-level section and a raised section where the home is sited. Significant room to expand — a rare option in established Las Tunas.</p>
+                    <p>The 1,500m² lot has significant room to expand. A rare option in established Las Tunas where large lots at this price point are virtually non-existent.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── 04 VACATION RENTAL POTENTIAL ─────────────────────────────── -->
+<!-- 04 VACATION RENTAL -->
 <section class="rental-section">
     <div class="container">
         <div class="section-header">
@@ -914,7 +333,6 @@
             <h2 class="section-title">Vacation Rental Potential</h2>
             <p class="section-subtitle">Expert income projections by Amy Rex — Todos Santos vacation rental specialist</p>
         </div>
-
         <div class="rental-stats fade-in">
             <div class="rental-stat">
                 <div class="rental-stat-value">$350–$450</div>
@@ -932,33 +350,27 @@
                 <div class="rental-stat-note">Professionally managed</div>
             </div>
         </div>
-
         <div class="chart-wrap fade-in">
             <h3>Projected Annual Revenue Breakdown</h3>
             <canvas id="rentalChart"></canvas>
         </div>
-
         <div class="rental-bottom fade-in">
             <div class="rental-box">
                 <h4>Cap Rate Estimate</h4>
-                <p>
-                    Gross Revenue: <strong style="color: var(--cream);">~$70,272</strong><br>
-                    Operating Expenses (~30%): <strong style="color: var(--cream);">~$21,000</strong><br>
-                    Net Operating Income (NOI): <strong style="color: var(--cream);">~$49,000</strong>
-                </p>
+                <p>Gross Revenue: <strong style="color: var(--cream);">~$70,272</strong><br>
+                Operating Expenses (~30%): <strong style="color: var(--cream);">~$21,000</strong><br>
+                Net Operating Income (NOI): <strong style="color: var(--cream);">~$49,000</strong></p>
                 <p class="cap-rate-line">Cap Rate at $649,000: ~7.5%</p>
             </div>
             <div class="rental-box">
                 <h4>Why This Property Outperforms</h4>
-                <p>
-                    Walk-to-amenities commands higher ADR and reduces vacancy. New construction means lower maintenance costs and stronger guest reviews. Baja Temple adjacency drives organic platform discovery. Diana Zavala's design creates a visually distinctive listing that stands out in search results.
-                </p>
+                <p>Walk-to-amenities commands higher ADR and reduces vacancy. New construction means lower maintenance costs and stronger guest reviews. Baja Temple adjacency drives organic platform discovery. Diana Zavala's design creates a visually distinctive listing that stands out in search results.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── 05 MARKET &amp; PRICING ─────────────────────────────────────── -->
+<!-- 05 MARKET & PRICING -->
 <section>
     <div class="container">
         <div class="section-header">
@@ -966,7 +378,6 @@
             <h2 class="section-title">Market Analysis &amp; Pricing</h2>
             <p class="section-subtitle">CMA-backed rationale for why $649,000 is the right number</p>
         </div>
-
         <div class="card-grid fade-in">
             <div class="card">
                 <div class="card-label">Avg. Closed Price</div>
@@ -986,10 +397,9 @@
             <div class="card" style="border-color: var(--terracotta);">
                 <div class="card-label">Casa Cashin Price</div>
                 <div class="card-value" style="color: var(--terracotta);">$649K</div>
-                <div class="card-note">Premium fully justified below</div>
+                <div class="card-note">Premium fully justified</div>
             </div>
         </div>
-
         <div class="pricing-table fade-in">
             <div class="pricing-header">
                 <h3>Recommended List Price</h3>
@@ -1022,7 +432,6 @@
                 </div>
             </div>
         </div>
-
         <div class="premium-grid fade-in">
             <div class="premium-item">
                 <h4>Lot Size (1,500m²)</h4>
@@ -1044,7 +453,7 @@
     </div>
 </section>
 
-<!-- ── 06 MARKETING PLAN ─────────────────────────────────────────── -->
+<!-- 06 MARKETING -->
 <section>
     <div class="container">
         <div class="section-header">
@@ -1052,19 +461,17 @@
             <h2 class="section-title">Marketing Strategy</h2>
             <p class="section-subtitle">Multi-channel approach designed for the international buyer profile of Todos Santos</p>
         </div>
-
         <div class="phases-grid fade-in">
             <div class="phase-card">
                 <h3>Phase 1 — Pre-Launch (Week 1–2)</h3>
                 <ul>
-                    <li>Professional photography session once pre-listing work complete</li>
+                    <li>Professional photography session once pre-listing work is complete</li>
                     <li>Drone video of lot, elevation, and ocean view line</li>
                     <li>Dedicated landing page live at amyrexproperty.com</li>
                     <li>Coordinate with South Baja Realtors network for broker preview</li>
                     <li>Prepare all marketing materials: PDF brochure, digital deck</li>
                 </ul>
             </div>
-
             <div class="phase-card">
                 <h3>Phase 2 — Launch (Weeks 3–6)</h3>
                 <ul>
@@ -1077,7 +484,6 @@
                     <li>Broker preview open house for La Paz &amp; Todos Santos agents</li>
                 </ul>
             </div>
-
             <div class="phase-card">
                 <h3>Phase 3 — Sustained Campaign (Ongoing)</h3>
                 <ul>
@@ -1094,7 +500,7 @@
     </div>
 </section>
 
-<!-- ── 07 WHY AMY REX ────────────────────────────────────────────── -->
+<!-- 07 WHY AMY REX -->
 <section class="why-amy-section">
     <div class="container">
         <div class="section-header">
@@ -1102,7 +508,6 @@
             <h2 class="section-title">Why Amy Rex + South Baja Realtors</h2>
             <p class="section-subtitle">Local expertise, vacation rental insight, and a professional network built for this market</p>
         </div>
-
         <div class="card-grid fade-in">
             <div class="card">
                 <div class="card-label">Market Expertise</div>
@@ -1125,7 +530,6 @@
                 <div class="card-note">Can activate rental management from day one</div>
             </div>
         </div>
-
         <ul class="advantages-list fade-in">
             <li><strong>Turnkey rental management available:</strong> If the buyer wants to run Casa Cashin as a vacation rental, Amy's team can manage the property immediately — no ramp-up period, no learning curve.</li>
             <li><strong>Architect portfolio recognition:</strong> Amy already represents other Diana Zavala properties (Casa Koa, Costa Eterea) — buyers in her network already associate that name with quality.</li>
@@ -1136,7 +540,7 @@
     </div>
 </section>
 
-<!-- ── CTA ───────────────────────────────────────────────────────── -->
+<!-- CTA -->
 <section class="cta-section">
     <div class="container">
         <h2>Ready to Move Forward?</h2>
@@ -1150,7 +554,7 @@
     </div>
 </section>
 
-<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<!-- FOOTER -->
 <footer>
     <div class="container">
         <p>Amy Rex Property Management &amp; Real Estate · South Baja Realtors</p>
@@ -1160,64 +564,40 @@
             &nbsp;·&nbsp;
             <a href="https://southbajarealtors.com">southbajarealtors.com</a>
         </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">
-            © 2025 Amy Rex Property Management &amp; Real Estate. All rights reserved.
-        </p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">© 2025 Amy Rex Property Management &amp; Real Estate. All rights reserved.</p>
     </div>
 </footer>
 
 <script>
-    // ── Scroll Animations ─────────────────────────────────────────
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // ── Rental Revenue Chart ──────────────────────────────────────
     const rentalCtx = document.getElementById('rentalChart').getContext('2d');
     new Chart(rentalCtx, {
         type: 'bar',
         data: {
-            labels: ['High Season\n(Nov–Apr)', 'Low Season\n(May–Oct)', 'Annual Total'],
-            datasets: [
-                {
-                    label: 'Est. Revenue (USD)',
-                    data: [50400, 19872, 70272],
-                    backgroundColor: ['rgba(164,123,103,0.85)', 'rgba(164,123,103,0.45)', 'rgba(122,85,72,0.9)'],
-                    borderColor: ['#A47B67', '#A47B67', '#7A5548'],
-                    borderWidth: 1,
-                }
-            ]
+            labels: ['High Season (Nov–Apr)', 'Low Season (May–Oct)', 'Annual Total'],
+            datasets: [{
+                label: 'Est. Revenue (USD)',
+                data: [50400, 19872, 70272],
+                backgroundColor: ['rgba(164,123,103,0.85)', 'rgba(164,123,103,0.45)', 'rgba(122,85,72,0.9)'],
+                borderColor: ['#A47B67', '#A47B67', '#7A5548'],
+                borderWidth: 1
+            }]
         },
         options: {
             responsive: true,
             plugins: {
                 legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        label: ctx => '$' + ctx.parsed.y.toLocaleString()
-                    }
-                }
+                tooltip: { callbacks: { label: ctx => '$' + ctx.parsed.y.toLocaleString() } }
             },
             scales: {
-                x: {
-                    ticks: { color: '#CCC9C6', font: { family: 'Nunito Sans', size: 12 } },
-                    grid: { color: 'rgba(204,201,198,0.1)' }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: '#CCC9C6',
-                        font: { family: 'Nunito Sans', size: 11 },
-                        callback: val => '$' + val.toLocaleString()
-                    },
-                    grid: { color: 'rgba(204,201,198,0.1)' }
-                }
+                x: { ticks: { color: '#CCC9C6', font: { family: 'Nunito Sans', size: 12 } }, grid: { color: 'rgba(204,201,198,0.1)' } },
+                y: { beginAtZero: true, ticks: { color: '#CCC9C6', font: { family: 'Nunito Sans', size: 11 }, callback: val => '$' + val.toLocaleString() }, grid: { color: 'rgba(204,201,198,0.1)' } }
             }
         }
     });
